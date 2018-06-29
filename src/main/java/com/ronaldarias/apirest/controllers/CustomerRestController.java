@@ -3,6 +3,7 @@ package com.ronaldarias.apirest.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ronaldarias.apirest.models.entity.Customer;
@@ -41,6 +43,7 @@ public class CustomerRestController {
 	// add mapping for POST /customers - add new customer
 
 	@PostMapping("/customers")
+	@ResponseStatus(HttpStatus.CREATED)
 	public Customer addCustomer(@RequestBody Customer customer) {
 
 		// also just in case the pass an id in JSON ... set id to 0
@@ -56,6 +59,7 @@ public class CustomerRestController {
 	// add mapping for PUT /customers - update existing customer
 	
 	@PutMapping("/customers")
+	@ResponseStatus(HttpStatus.CREATED)
 	public Customer updateCustomer(@RequestBody Customer customer) {
 		
 		customerService.saveCustomer(customer);
@@ -66,11 +70,10 @@ public class CustomerRestController {
 	
 	//add mapping for DELETE /customers/{customerId} - delete existing customer
 	@DeleteMapping("/customers/{customerId}")
-	public String deleteCustomer(@PathVariable int customerId) {
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deleteCustomer(@PathVariable int customerId) {
 		
 		customerService.deleteCustomer(customerId);
-		
-		return "Deleted customer id - " + customerId;
 	}
 
 }
