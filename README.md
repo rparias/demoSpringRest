@@ -73,3 +73,9 @@ UNLOCK TABLES;
 -- Dump completed on 2016-09-24 21:50:59
 
 ```
+4. Descargamos el proyecto base desde el siguiente enlace:
+https://udlaec-my.sharepoint.com/:u:/g/personal/ronald_arias_udla_edu_ec/EctAuYT1xhtPtQNRXT4Km8UBQSGrlbCUG3nb2CXvUGO1eA?e=Q7evTT
+
+5. Abrimos Eclipse, STS, NetBeans o cualquier IDE Java que sea de su agrado para importar el proyecto descargado.
+
+6. 
