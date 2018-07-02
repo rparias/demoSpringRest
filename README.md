@@ -168,9 +168,9 @@ public class CustomerRestController {
 ```
 
 8. Ejecutamos el proyecto de Spring, como se ve en la siguiente imagen:
-![alt text][logo]
+![alt text][logo2]
 
-[logo]: https://i.gyazo.com/0ee676536da1f50600fd14338d531928.png "Ejecutar"
+[logo2]: https://i.gyazo.com/0ee676536da1f50600fd14338d531928.png "Ejecutar"
 
 9. Probamos los servicios web con el programa [Postman](https://www.getpostman.com/)
 
