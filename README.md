@@ -52,11 +52,11 @@ LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
 
 INSERT INTO `customer` VALUES 
-	(1,'David','Adams','david@luv2code.com'),
-	(2,'John','Doe','john@luv2code.com'),
-	(3,'Ajay','Rao','ajay@luv2code.com'),
-	(4,'Mary','Public','mary@luv2code.com'),
-	(5,'Maxwell','Dixon','max@luv2code.com');
+	(1,'David','Adams','david@info.com'),
+	(2,'John','Doe','john@info.com'),
+	(3,'Ajay','Rao','ajay@info.com'),
+	(4,'Mary','Public','mary@info.com'),
+	(5,'Maxwell','Dixon','max@info.com');
 
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -78,4 +78,91 @@ https://udlaec-my.sharepoint.com/:u:/g/personal/ronald_arias_udla_edu_ec/EctAuYT
 
 5. Abrimos Eclipse, STS, NetBeans o cualquier IDE Java que sea de su agrado para importar el proyecto descargado.
 
-6. 
+6. Agregamos la Clase CustomerRestController dentro del paquete controllers, como se ve en la siguiente imagen:
+![alt text][logo]
+
+[logo]: https://udlaec-my.sharepoint.com/:i:/g/personal/ronald_arias_udla_edu_ec/EbTvpgKk4KRPvMhfjk7SxzsBZZkZb0SwEWfu1O3mpUDKUQ?e=4AMPlJ "Esquema"
+
+7. Escribir el siguiente código en el controlador:
+```java
+package com.ronaldarias.apirest.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ronaldarias.apirest.models.entity.Customer;
+import com.ronaldarias.apirest.models.service.CustomerService;
+
+@CrossOrigin(origins = {"http://localhost:4200"})
+@RestController
+@RequestMapping("/api")
+public class CustomerRestController {
+
+	// injection dependency
+	@Autowired
+	private CustomerService customerService;
+
+	@GetMapping("/customers")
+	public List<Customer> getCustomers() {
+		return customerService.getCustomers();
+	}
+
+	@GetMapping("/customers/{customerId}")
+	public Customer getCustomer(@PathVariable int customerId) {
+
+		Customer customer = customerService.getCustomer(customerId);
+
+		return customer;
+	}
+
+	// add mapping for POST /customers - add new customer
+
+	@PostMapping("/customers")
+	@ResponseStatus(HttpStatus.CREATED)
+	public Customer addCustomer(@RequestBody Customer customer) {
+
+		// also just in case the pass an id in JSON ... set id to 0
+		// this is force a save of new item ... instead of update
+
+		customer.setId(null);
+
+		customerService.saveCustomer(customer);
+
+		return customer;
+	}
+	
+	// add mapping for PUT /customers - update existing customer
+	
+	@PutMapping("/customers")
+	@ResponseStatus(HttpStatus.CREATED)
+	public Customer updateCustomer(@RequestBody Customer customer) {
+		
+		customerService.saveCustomer(customer);
+		
+		return customer;
+	}
+	
+	
+	//add mapping for DELETE /customers/{customerId} - delete existing customer
+	@DeleteMapping("/customers/{customerId}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deleteCustomer(@PathVariable int customerId) {
+		
+		customerService.deleteCustomer(customerId);
+	}
+
+}
+
+```
