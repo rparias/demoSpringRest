@@ -81,7 +81,7 @@ https://udlaec-my.sharepoint.com/:u:/g/personal/ronald_arias_udla_edu_ec/EctAuYT
 6. Agregamos la Clase CustomerRestController dentro del paquete controllers, como se ve en la siguiente imagen:
 ![alt text][logo]
 
-[logo]: https://udlaec-my.sharepoint.com/:i:/g/personal/ronald_arias_udla_edu_ec/EbTvpgKk4KRPvMhfjk7SxzsBZZkZb0SwEWfu1O3mpUDKUQ?e=4AMPlJ "Esquema"
+[logo]: https://i.gyazo.com/8bf5fdc167a5e0d320d2ff5a7c3742d6.png "Esquema"
 
 7. Escribir el siguiente código en el controlador:
 ```java
