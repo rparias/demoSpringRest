@@ -174,4 +174,29 @@ public class CustomerRestController {
 
 9. Probamos los servicios web con el programa [Postman](https://www.getpostman.com/)
 
-10. Comprobamos los resultados con cada método
+10. Comprobamos los resultados con el método getCustomers()
+![alt text][getCustomers]
+
+[getCustomers]: https://i.gyazo.com/208c309b04d96060f31774d520341475.png "Get Customers"
+
+11. Comprobamos los resultados con el método getCustomer() con un id
+![alt text][getCustomer]
+
+[getCustomer]: https://i.gyazo.com/ace2790820584c401b2d014bab4dfe1e.png "Get Customer"
+
+12. Comprobamos los resultados con el método addCustomer()
+![alt text][addCustomer]
+
+[addCustomer]: https://i.gyazo.com/7496e7066864311ab4331fece7ae2e0a.png "Add Customer"
+
+13. Comprobamos los resultados con el método updateCustomer()
+![alt text][updateCustomer]
+
+[updateCustomer]: https://i.gyazo.com/780dbf259a7a096d6747ebc5b0fc5306.png "Update Customer"
+
+14. Comprobamos los resultados con el método deleteCustomer()
+![alt text][deleteCustomer]
+
+[deleteCustomer]: https://i.gyazo.com/cfacee87cd97896dec73da8e0bebe12a.png "Delete Customer"
+
+15. Como vemos, los servicios web funcionan correctamente, si lo desean, pueden descargar o clonar este proyecto.
